@@ -1,9 +1,9 @@
 import React from "react";
 
-function WrongGuesses() {
+function WrongGuesses({ wrong }) {
   return (
     <div>
-      <h1>hi</h1>
+      <h1>Number Wrong: { wrong }</h1>
     </div>
   );
 }
