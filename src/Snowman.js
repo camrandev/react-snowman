@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WrongGuesses from "./WrongGuesses.js";
+import Button from "./Button.js";
 import { randomWord, ENGLISH_WORDS } from "./words.js";
 
 import "./Snowman.css";
@@ -74,6 +75,12 @@ function Snowman({
     ));
   }
 
+  function restartGame() {
+    setNWrong(0);
+    setGuessedLetters(() => new Set())
+    setAnswer(randomWord(words));
+  }
+
   return (
     <div className="Snowman">
       <img src={images[nWrong]} alt={nWrong} />
@@ -88,6 +95,7 @@ function Snowman({
           <p>the correct word is: {answer}</p>
         </div>
       )}
+      <Button restartGame={restartGame} />
     </div>
   );
 }
