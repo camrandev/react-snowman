@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WrongGuesses from './WrongGuesses.js'
 
 import "./Snowman.css";
 import img0 from "./0.png";
@@ -51,6 +52,7 @@ function Snowman({
     let ltr = evt.target.value;
 
     setGuessedLetters(g => {
+      console.log(g)
       const newGuessed = new Set(g);
       newGuessed.add(ltr);
       return newGuessed;
@@ -76,6 +78,7 @@ function Snowman({
   return (
       <div className="Snowman">
         <img src={(images)[nWrong]} alt={nWrong} />
+        <WrongGuesses />
         <p className="Snowman-word">{guessedWord()}</p>
         <p>{generateButtons()}</p>
       </div>
